@@ -1,14 +1,29 @@
-このリポジトリの内容は https://github.com/SWITCHSCIENCE/samplecodes に移動しました。
-これ以降、コードのアップデートがある場合は、移動先のみ行う予定です。
-
 # BME280
 
-BME280 is environmental sensor that makes Bosch Sensortec. It can sense pressure, humidity and temperature.  
-[http://www.bosch-sensortec.com/en/homepage/products_3/environmental_sensors_1/bme280/bme280_1](http://www.bosch-sensortec.com/en/homepage/products_3/environmental_sensors_1/bme280/bme280_1)
+Raspberry PiでBME280で気圧、温度、湿度を取得するアプリです。
+## 使い方
+### 1. `smbus2`をインストールする
+```shell
+pip3 install smbus2
+```
 
-## How to use
-[BME280搭載　温湿度・気圧センサモジュールの使い方](http://trac.switch-science.com/wiki/BME280) (Japanese)
+### 2. `Python3/bme280.py`をRaspberry Piの任意のディレクトリに配置する。
 
-## Buy
-[BME280搭載　温湿度・気圧センサモジュール](https://www.switch-science.com/catalog/2236/) for Japan  
-[BME280 Temperature/Humidity/Barometric Pressure Sensor Breakout](https://international.switch-science.com/catalog/2236/) for Worldwide.
+### 3. 実行する
+```
+python3 bme280.py 
+```
+
+## 変更内容
+フォーク元の[本家リポジトリ](https://github.com/SWITCHSCIENCE/BME280)に対して、以下のような変更点があります。
+### Python3対応
+Python3に対応した、`bme280.py`を`Python3`ディレクトリに追加しました。
+
+### 標準出力の形式変更
+`Python3/bme280.py`を実行したときの標準出力を、スペース区切りの
+> 気圧(hPa) 温度(°C) 湿度(%)
+
+という形式に変更しました。
+
+例
+> ``` 1003.74 27.13 37.85 ```
